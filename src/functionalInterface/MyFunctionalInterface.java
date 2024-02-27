@@ -1,6 +1,6 @@
 package functionalInterface;
 
 @FunctionalInterface
-public interface MyFunctionalnterface {
+public interface MyFunctionalInterface {
     void function ();
 }
