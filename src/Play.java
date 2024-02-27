@@ -3,6 +3,7 @@ import functionalInterface.MyFunctionalInterface;
 
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Play {
     public static void main(String[] args) {
@@ -10,7 +11,8 @@ public class Play {
 //        p.PLAY_functionalInterface();
 //        p.PLAY_predicateWithLambda();
 //        p.PLAY_Predicate();
-        p.PLAY_BiPredicate();
+//        p.PLAY_BiPredicate();
+        p.PLAY_Supplier();
     }
 
     public void PLAY_functionalInterface() {
@@ -49,6 +51,16 @@ public class Play {
         String warrior = "1warrior";
         System.out.println(bp.test(warrior, 1));
         System.out.println(bp.test(warrior, 5));
+    }
+
+    public void PLAY_Supplier() {
+        Supplier<Double> random = Math::random;
+        Supplier<String> hello = () -> {
+            return "Hello World!";
+        };
+
+        System.out.println(random.get());
+        System.out.println(hello.get());
     }
 
 
