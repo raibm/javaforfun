@@ -1,3 +1,4 @@
+import functionalInterface.Check;
 import functionalInterface.IsValidText;
 import functionalInterface.MyFunctionalInterface;
 
@@ -13,5 +14,7 @@ public class Play {
 
         System.out.println("Text is valid? "+validator.function(text));
         System.out.println("Text 2 is valid? "+validator.function(text2));
+
+        
     }
 }
