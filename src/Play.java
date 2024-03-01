@@ -1,9 +1,10 @@
 import functionalInterface.IsValidText;
 import functionalInterface.MyFunctionalInterface;
 
-import java.util.function.BiPredicate;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.function.*;
 
 public class Play {
     public static void main(String[] args) {
@@ -12,7 +13,9 @@ public class Play {
 //        p.PLAY_predicateWithLambda();
 //        p.PLAY_Predicate();
 //        p.PLAY_BiPredicate();
-        p.PLAY_Supplier();
+//        p.PLAY_Supplier();
+//        p.PLAY_Consumer();
+        p.PLAY_BIConsumer();
     }
 
     public void PLAY_functionalInterface() {
@@ -55,14 +58,32 @@ public class Play {
 
     public void PLAY_Supplier() {
         Supplier<Double> random = Math::random;
-        Supplier<String> hello = () -> {
-            return "Hello World!";
-        };
+        Supplier<String> hello = () -> "Hello World!";
 
         System.out.println(random.get());
         System.out.println(hello.get());
     }
 
+    public void PLAY_Consumer() {
+        List<String> list = new ArrayList<>();
+        Consumer<String> consumer = System.out::println;
+        list.add("First String");
+        list.add("Second String");
+        list.forEach(consumer);
+    }
+
+    public void PLAY_BIConsumer() {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+
+        BiConsumer<String, Integer> biConsumer = (k, v) -> hashMap.put(k,v);
+        biConsumer.accept("Kansas", 1);
+        biConsumer.accept("Nebraska", 2);
+        System.out.println(hashMap);
+
+
+        BiConsumer<String, Integer> showValueAndIndex = (v, i) -> System.out.println("["+i+"] "+v);
+        hashMap.forEach(showValueAndIndex);
+    }
 
     public static <T> boolean check(T t, Predicate<T> lambda) {
         return lambda.test(t);
