@@ -15,7 +15,9 @@ public class Play {
 //        p.PLAY_BiPredicate();
 //        p.PLAY_Supplier();
 //        p.PLAY_Consumer();
-        p.PLAY_BIConsumer();
+//        p.PLAY_BIConsumer();
+//        p.PLAY_Function();
+        p.PLAY_BiFunction();
     }
 
     public void PLAY_functionalInterface() {
@@ -83,6 +85,23 @@ public class Play {
 
         BiConsumer<String, Integer> showValueAndIndex = (v, i) -> System.out.println("["+i+"] "+v);
         hashMap.forEach(showValueAndIndex);
+    }
+
+    public void PLAY_Function() {
+        Function<String, Integer> stringLength = s -> s.length();
+        List<String> list = new ArrayList<>();
+        list.add("First String");
+        list.add("Woooahh");
+        list.forEach(s -> System.out.println(stringLength.apply(s)));
+    }
+
+    public void PLAY_BiFunction() {
+        BiFunction<String, String, String> joinStrings = (s1, s2) -> s2.concat(s1);
+        String firstName = "Nikola ";
+        String lastName = "Tesla";
+        String fullName = joinStrings.apply(lastName, firstName);
+
+        System.out.println(fullName);
     }
 
     public static <T> boolean check(T t, Predicate<T> lambda) {
