@@ -1,27 +1,28 @@
 public class LeetCode {
 
     public static void main(String[] args) {
-        int[] array = {5, 6};
-        int[] array2 = {2, 1, 9, 3, 3};
-//        System.out.println(findMedianSortedArrays(array, array2));
-
+        int[] array = {1, 2};
+        int[] array2 = {3, 3};
         int[] sortedArray = sortArray(array, array2);
-        System.out.println(sortedArray);
+
+        System.out.println("The median is: " + findMedianIntoSortedArray(sortedArray));
     }
 
-    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    public static double findMedianIntoSortedArray(int[] sortedArray) {
         double outPut = 0;
-        int length = nums1.length + nums2.length;
 
-        for (int i = 0; i < nums1.length; i++) {
-            outPut += nums1[i];
+        if (sortedArray.length % 2 != 0) {
+            for (int i = 0; i < sortedArray.length; i++) {
+                outPut += sortedArray[i];
+            }
+            outPut = sortedArray[sortedArray.length/2];
+        } else {
+            double value1 = sortedArray[sortedArray.length / 2 - (1)];
+            double value2 = sortedArray[sortedArray.length / 2];
+            outPut = ((value1 + value2) / 2);
         }
 
-        for (int i = 0; i < nums2.length; i++) {
-            outPut += nums2[i];
-        }
-
-        return outPut / length;
+        return outPut;
     }
 
     public static int[] sortArray(int[] array, int[] array2) {
