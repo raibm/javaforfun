@@ -1,4 +1,6 @@
-public class LeetCode {
+package leetcode;
+
+public class Challenge_MedianOfTwoArrays {
 
     public static void main(String[] args) {
         int[] array = {1, 2};
