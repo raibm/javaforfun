@@ -4,7 +4,7 @@ public class InfernalChallengeLeetCode {
 
     public static void main(String[] args) {
         int[] a = {0, 0, 1, 1, 1, 1, 1, 2,2,2,2,2,2, 3, 3, 4};
-        removeDuplicates(a);
+        removeDuplicates2(a);
     }
 
     public static int removeDuplicates(int[] nums) {
@@ -73,6 +73,23 @@ public class InfernalChallengeLeetCode {
 
         return totalNumbers;
     }
+
+    public static int removeDuplicates2(int[] nums) {
+        if(nums.length == 2) {
+            return 2;
+        }
+
+        int totalElements = 2;
+
+        for(int i = 2; i < nums.length; i++) {
+            if(nums[totalElements -1] != nums[i] || nums[totalElements - 2] != nums[i]) {
+                nums[totalElements++] = nums[i];
+            }
+        }
+
+        return totalElements;
+    }
+
 
 
 }
