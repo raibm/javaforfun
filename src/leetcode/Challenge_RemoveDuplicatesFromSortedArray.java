@@ -1,6 +1,6 @@
 package leetcode;
 
-public class RemoveDuplicatesFromSortedArray {
+public class Challenge_RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int [] nums = {1,1,2};
 
