@@ -17,7 +17,7 @@ public class Challenge_MajorityOfElements {
         HashMap<Integer, Integer> mapped = new HashMap<>();
         for (int num : nums) {
             if (mapped.containsKey(num)) {
-                mapped.replace(num, mapped.get(num), mapped.get(num) + 1);
+                mapped.put(num, mapped.get(num) + 1);
             } else {
                 mapped.put(num, 1);
             }
