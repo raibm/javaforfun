@@ -1,9 +1,7 @@
 import functionalInterface.IsValidText;
 import functionalInterface.MyFunctionalInterface;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.function.*;
 
 public class Play {
@@ -18,7 +16,41 @@ public class Play {
 //        p.PLAY_BIConsumer();
 //        p.PLAY_Function();
         p.PLAY_BiFunction();
+        Map<Long, Long> counted = new HashMap<>();
     }
+
+//    Map<Long, Long> count(Map<String, UserStats>... visits) {
+//        Map<Long, Long> counted = new HashMap<>();
+//        if (visits == null || visits.length == 0) {
+//            return counted;
+//        }
+//
+//        Arrays.stream(visits)
+//                .filter(Objects::nonNull)
+//                .forEach(visitorMap -> {
+//                    visitorMap.forEach((idStr, userInfo) -> {
+//                        if (idStr != null && !idStr.isEmpty() && convertToLong(idStr)) {
+//                            Long id = Long.parseLong(idStr);
+//                            if (userInfo != null && userInfo.getVisitCount().isPresent()) {
+//                                counted.put(id, counted.getOrDefault(id, 0L) + userInfo.getVisitCount().get());
+//                            }
+//                        }
+//                    });
+//                });
+//        return counted;
+//    }
+
+    Boolean convertToLong(String str) {
+        boolean v = false;
+        try {
+            Long.valueOf(str);
+            v = true;
+        } catch (Exception ignored) {
+
+        }
+        return v;
+    }
+
 
     public void PLAY_functionalInterface() {
         MyFunctionalInterface m = () -> System.out.println("Hello World!");
@@ -27,16 +59,16 @@ public class Play {
         m.function();
 
         String text = "Frog";
-        System.out.println("Text is valid? "+validator.function(text));
+        System.out.println("Text is valid? " + validator.function(text));
         text = null;
-        System.out.println("Text 2 is valid? "+validator.function(text));
+        System.out.println("Text 2 is valid? " + validator.function(text));
     }
 
     public void PLAY_predicateWithLambda() {
         String name = "Fire God";
-        System.out.println("Is "+name+" an elemental god? "+ check(name, n -> n.endsWith("God")));
+        System.out.println("Is " + name + " an elemental god? " + check(name, n -> n.endsWith("God")));
         name = "Fire Lord";
-        System.out.println("Is "+name+" an elemental god? "+ check(name, n -> n.endsWith("God")));
+        System.out.println("Is " + name + " an elemental god? " + check(name, n -> n.endsWith("God")));
     }
 
     /**
@@ -45,9 +77,9 @@ public class Play {
     public void PLAY_Predicate() {
         Predicate<String> isSamurai = p -> p.equals("samurai");
         String t1 = "centurion";
-        System.out.println("Is "+t1+" an oriental warrior? "+ isSamurai.test(t1));
+        System.out.println("Is " + t1 + " an oriental warrior? " + isSamurai.test(t1));
         t1 = "samurai";
-        System.out.println("Is "+t1+" an oriental warrior? "+ isSamurai.test(t1));
+        System.out.println("Is " + t1 + " an oriental warrior? " + isSamurai.test(t1));
     }
 
     public void PLAY_BiPredicate() {
@@ -77,13 +109,13 @@ public class Play {
     public void PLAY_BIConsumer() {
         HashMap<String, Integer> hashMap = new HashMap<>();
 
-        BiConsumer<String, Integer> biConsumer = (k, v) -> hashMap.put(k,v);
+        BiConsumer<String, Integer> biConsumer = (k, v) -> hashMap.put(k, v);
         biConsumer.accept("Kansas", 1);
         biConsumer.accept("Nebraska", 2);
         System.out.println(hashMap);
 
 
-        BiConsumer<String, Integer> showValueAndIndex = (v, i) -> System.out.println("["+i+"] "+v);
+        BiConsumer<String, Integer> showValueAndIndex = (v, i) -> System.out.println("[" + i + "] " + v);
         hashMap.forEach(showValueAndIndex);
     }
 
