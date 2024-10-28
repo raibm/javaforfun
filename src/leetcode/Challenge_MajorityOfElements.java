@@ -13,7 +13,9 @@ public class Challenge_MajorityOfElements {
     public static int majorityElement(int[] nums) {
         int majorNumber = 0;
         int previousValue = 0;
-
+        /**
+         * f(n)
+         */
         HashMap<Integer, Integer> mapped = new HashMap<>();
         for (int num : nums) {
             if (mapped.containsKey(num)) {

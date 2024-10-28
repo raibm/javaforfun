@@ -1,13 +1,17 @@
 package leetcode;
 
+import java.util.HashMap;
+
 public class Challenge_RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int [] nums = {1,1,2};
 
         removeDuplicates(nums);
-        System.out.println(nums);
+        for(int n : nums ) {
+            System.out.println(n);
+        }
     }
-    public static int removeDuplicates(int[] nums) {
+    public static void removeDuplicates(int[] nums) {
         int count = 0;
         int previousNumber = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -29,7 +33,6 @@ public class Challenge_RemoveDuplicatesFromSortedArray {
         for(int i = count; i < nums.length; i ++) {
             nums[i] = 0;
         }
-        return count;
     }
 
 }
