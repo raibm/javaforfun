@@ -1,4 +1,4 @@
-package GoogleInterview;
+package algorithm.hashmap.twosun;
 
 import java.util.HashMap;
 
