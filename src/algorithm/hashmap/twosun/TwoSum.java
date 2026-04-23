@@ -32,6 +32,7 @@ public class TwoSum {
     /**
      * Solução O(n);
      * Para cada número x, verificar se target - x já foi visto antes.
+     * Memoization
      */
     public static void twoSum2(int[] values, int target) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
