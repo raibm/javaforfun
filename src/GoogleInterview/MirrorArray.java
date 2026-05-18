@@ -1,5 +1,10 @@
 package GoogleInterview;
 
+/**
+ * A ideia é espelhar um array, seguindo o exemplo:
+ * [1,2,3,4,5,6,7]
+ * [7,6,5,4,3,2,1]
+ */
 public class MirrorArray {
     public static void main(String[] arg) {
         int[] nums = {1, 2, 3, 4, 5, 6, 7};
@@ -13,10 +18,10 @@ public class MirrorArray {
         int firstIndex = 0;
         int lastIndex = nums.length - 1;
         while (firstIndex < lastIndex) {
-            int v1 = nums[firstIndex];
-            int v2 = nums[lastIndex];
-            nums[firstIndex] = v2;
-            nums[lastIndex] = v1;
+            int tempStartPosition = nums[firstIndex];
+            int tempEndPosition = nums[lastIndex];
+            nums[firstIndex] = tempEndPosition;
+            nums[lastIndex] = tempStartPosition;
             firstIndex++;
             lastIndex--;
         }
